@@ -1,19 +1,17 @@
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="https://github.com/ShahadatAnik/Quran-ReactJS-ChakraUI-Webapp/blob/master/public/apple-touch-icon.png" alt="Logo" width="80" height="80">
-  </a>
+    <img src="https://github.com/ShahadatAnik/Online-PowerToys--ReactJS-Tailwind/blob/master/public/apple-touch-icon.png" alt="Logo" width="80" height="80">
 
   <h3 align="center">Online PowerToys</h3>
 
   <p align="center">
-    A collection of online tools for power users.
+    A collection of online tools for power users
     <br />
     <br />
     <a href="https://ilmiyah.netlify.app/">View Demo</a>
   </p>
 </div>
 
-## How to run this branch
+## How to run this website 
 
 This branch contains the lesson-2 source code shown in the Tutorial Series. To run the project follow the below steps:
 
