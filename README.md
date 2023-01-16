@@ -7,11 +7,11 @@
     A collection of online tools for power users
     <br />
     <br />
-    <a href="https://ilmiyah.netlify.app/">View Demo</a>
+    <a href="https://online-powertoys.netlify.app/">View Demo</a>
   </p>
 </div>
 
-## How to run this website 
+## How to run this website
 
 This branch contains the lesson-2 source code shown in the Tutorial Series. To run the project follow the below steps:
 
