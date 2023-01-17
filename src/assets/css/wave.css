@@ -21,7 +21,6 @@ p {
 }
 
 .inner-header {
-    height: 55vh;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -29,7 +28,6 @@ p {
 
 .content {
     position: relative;
-    height: 25vh;
     text-align: center;
     background-color: #fff;
 }

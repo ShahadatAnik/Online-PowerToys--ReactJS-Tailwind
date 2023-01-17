@@ -42,18 +42,18 @@ export default function Home() {
                 fontFamily: "Arthemis",
             }}
         >
-            <div class="inner-header flex">
-                <div className="flex-1 text-2xl text-orange-400 lg:text-8xl">
+            <div class="inner-header flex h-96 lg:h-50">
+                <div className="flex-1 text-6xl text-orange-400 lg:text-8xl">
                     Online PowerToys
                 </div>
             </div>
             <Wave />
-            <div className="grid grid-cols-2 place-content-center gap-4 bg-transparent ">
+            <div className="grid grid-cols-2 place-content-center gap-2 bg-transparent ">
                 {link.map((item) => (
                     <a
                         href={item.path}
                         className={`duration-900 duration-900 duration-900 duration-900 m-4 
-                        rounded-full p-16 text-center text-xl 
+                        rounded-full p-16 text-center text-2xl 
                         font-bold text-white
                         transition   ease-in-out  hover:ring-4 lg:text-5xl ${item.bg} ${item.hover} ${item.rotate} `}
                     >
