@@ -1,4 +1,6 @@
 import React from "react";
+import Wave from "../utils/Wave";
+import "../assets/css/wave.css";
 
 export default function Home() {
     const link = [
@@ -6,41 +8,59 @@ export default function Home() {
             name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
             bg: "",
-            hover: "hover:bg-blue-700",
-            rotate: "origin-bottom rotate-12",
+            hover: "hover:ring-green-400 hover:text-green-400",
+            rotate: "",
         },
         {
-            name: "02",
+            name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
             bg: "",
-            hover: "hover:bg-red-700",
-            rotate: "origin-top-left rotate-20",
+            hover: "hover:ring-indigo-400 hover:text-indigo-400",
+
+            rotate: "",
         },
         {
-            name: "03",
+            name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
             bg: "",
-            hover: "hover:bg-green-700",
-            rotate: "origin-top-left rotate-30",
+            hover: "hover:ring-pink-400 hover:text-pink-400",
+
+            rotate: "",
         },
         {
-            name: "04",
+            name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
             bg: "",
-            hover: "hover:bg-yellow-700",
-            rotate: "origin-top-left rotate-40",
+            hover: "hover:ring-red-400 hover:text-red-400",
+
+            rotate: "",
         },
     ];
     return (
-        <div className="grid h-screen grid-cols-2 place-content-center gap-4">
-            {link.map((item) => (
-                <a
-                    href={item.path}
-                    className={`m-4 rounded-md p-16 text-center font-bold text-white duration-300 ${item.bg} ${item.hover} ${item.rotate} duration-900 transform transition ease-in-out`}
-                >
-                    {item.name}
-                </a>
-            ))}
+        <div
+            style={{
+                fontFamily: "Arthemis",
+            }}
+        >
+            <div class="inner-header flex">
+                <div className="flex-1 text-2xl text-orange-400 lg:text-8xl">
+                    Online PowerToys
+                </div>
+            </div>
+            <Wave />
+            <div className="grid grid-cols-2 place-content-center gap-4 bg-transparent ">
+                {link.map((item) => (
+                    <a
+                        href={item.path}
+                        className={`duration-900 duration-900 duration-900 duration-900 m-4 
+                        rounded-full p-16 text-center text-xl 
+                        font-bold text-white
+                        transition   ease-in-out  hover:ring-4 lg:text-5xl ${item.bg} ${item.hover} ${item.rotate} `}
+                    >
+                        {item.name}
+                    </a>
+                ))}
+            </div>
         </div>
     );
 }
