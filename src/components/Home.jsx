@@ -7,33 +7,22 @@ export default function Home() {
         {
             name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
-            bg: "",
-            hover: "hover:ring-green-400 hover:text-green-400",
-            rotate: "",
+            hover: "green",
         },
         {
             name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
-            bg: "",
-            hover: "hover:ring-indigo-400 hover:text-indigo-400",
-
-            rotate: "",
+            hover: "indigo",
         },
         {
             name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
-            bg: "",
-            hover: "hover:ring-pink-400 hover:text-pink-400",
-
-            rotate: "",
+            hover: "pink",
         },
         {
             name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
-            bg: "",
-            hover: "hover:ring-red-400 hover:text-red-400",
-
-            rotate: "",
+            hover: "red",
         },
     ];
     return (
@@ -42,7 +31,7 @@ export default function Home() {
                 fontFamily: "Arthemis",
             }}
         >
-            <div class="inner-header flex h-96 lg:h-50">
+            <div class="inner-header lg:h-50 flex h-96">
                 <div className="flex-1 text-6xl text-orange-400 lg:text-8xl">
                     Online PowerToys
                 </div>
@@ -52,10 +41,7 @@ export default function Home() {
                 {link.map((item) => (
                     <a
                         href={item.path}
-                        className={`duration-900 duration-900 duration-900 duration-900 m-4 
-                        rounded-full p-16 text-center text-2xl 
-                        font-bold text-white
-                        transition   ease-in-out  hover:ring-4 lg:text-5xl ${item.bg} ${item.hover} ${item.rotate} `}
+                        className={`duration-900 translate m-4 translate-x-0 rounded-full p-16 text-center text-2xl font-bold text-white transition ease-in-out hover:ring-4 lg:text-5xl hover:ring-${item.hover}-400 hover:text-${item.hover}-400`}
                     >
                         {item.name}
                     </a>
