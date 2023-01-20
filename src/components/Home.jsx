@@ -7,23 +7,23 @@ export default function Home() {
         {
             name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
-            hover: "green",
+            hover: "hover:ring-green-400 hover:text-green-400",
         },
         {
-            name: "Line To Space Converter",
-            path: "/LineToSpaceConverter",
-            hover: "indigo",
+            name: "Word, Character, Line Counter",
+            path: "/WordCharLineCounter",
+            hover: "hover:ring-red-400 hover:text-red-400",
         },
-        {
-            name: "Line To Space Converter",
-            path: "/LineToSpaceConverter",
-            hover: "pink",
-        },
-        {
-            name: "Line To Space Converter",
-            path: "/LineToSpaceConverter",
-            hover: "red",
-        },
+        // {
+        //     name: "Line To Space Converter",
+        //     path: "/LineToSpaceConverter",
+        //     hover: "hover:ring-pink-400 hover:text-pink-400",
+        // },
+        // {
+        //     name: "Line To Space Converter",
+        //     path: "/LineToSpaceConverter",
+        //     hover: "hover:ring-indigo-400 hover:text-indigo-400",
+        // },
     ];
     return (
         <div
@@ -41,7 +41,7 @@ export default function Home() {
                 {link.map((item) => (
                     <a
                         href={item.path}
-                        className={`duration-900 translate m-4 translate-x-0 rounded-full p-16 text-center text-2xl font-bold text-white transition ease-in-out hover:ring-4 lg:text-5xl hover:ring-${item.hover}-400 hover:text-${item.hover}-400`}
+                        className={`duration-900 translate m-4 translate-x-0 rounded-full p-16 text-center text-2xl font-bold text-white transition ease-in-out hover:ring-4 lg:text-5xl ${item.hover} `}
                     >
                         {item.name}
                     </a>
