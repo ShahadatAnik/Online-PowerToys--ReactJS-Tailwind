@@ -1,18 +1,4 @@
-body {
-    margin: 0;
-}
 
-h1 {
-    font-family: Quicksand, "Segoe UI", sans-serif;
-    font-weight: 400;
-    font-size: 55px;
-}
-
-p {
-    font-family: Quicksand, "Segoe UI", sans-serif;
-    font-size: 14px;
-    color: #333;
-}
 
 .header {
     position: relative;
