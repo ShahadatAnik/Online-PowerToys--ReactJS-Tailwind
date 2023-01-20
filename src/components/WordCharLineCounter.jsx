@@ -46,7 +46,7 @@ export default function WordCharLineCounter() {
                 line: lineCount,
             });
             setIsLoading(false);
-            toast.success("Text Converted", {
+            toast.success("Counted All", {
                 position: "top-right",
                 autoClose: 1500,
                 hideProgressBar: false,

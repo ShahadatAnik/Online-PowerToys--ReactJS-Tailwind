@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./assets/css/animated-back.css";
 
+import Loader from "./utils/Loader";
+
 const NotFoundPage = lazy(() => import("./utils/NotFound"));
 
 const Home = lazy(() => import("./components/Home"));
@@ -24,7 +26,7 @@ function App() {
                     <Route
                         path="/*"
                         element={
-                            <Suspense fallback={<div>Loading</div>}>
+                            <Suspense fallback={<Loader />}>
                                 <NotFoundPage />
                             </Suspense>
                         }
@@ -32,7 +34,7 @@ function App() {
                     <Route
                         path="/LineToSpaceConverter"
                         element={
-                            <Suspense fallback={<div>Loading</div>}>
+                            <Suspense fallback={<Loader />}>
                                 <LineToSpaceConvert />
                             </Suspense>
                         }
@@ -40,8 +42,16 @@ function App() {
                     <Route
                         path="/WordCharLineCounter"
                         element={
-                            <Suspense fallback={<div>Loading</div>}>
+                            <Suspense fallback={<Loader />}>
                                 <WordCharLineCounter />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/test"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <Loader />
                             </Suspense>
                         }
                     />
