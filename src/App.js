@@ -8,6 +8,9 @@ const Home = lazy(() => import("./components/Home"));
 const LineToSpaceConvert = lazy(() =>
     import("./components/LineToSpaceConvert")
 );
+const WordCharLineCounter = lazy(() =>
+    import("./components/WordCharLineCounter")
+);
 
 function App() {
     return (
@@ -31,6 +34,14 @@ function App() {
                         element={
                             <Suspense fallback={<div>Loading</div>}>
                                 <LineToSpaceConvert />
+                            </Suspense>
+                        }
+                    />
+                    <Route
+                        path="/WordCharLineCounter"
+                        element={
+                            <Suspense fallback={<div>Loading</div>}>
+                                <WordCharLineCounter />
                             </Suspense>
                         }
                     />

@@ -6,15 +6,45 @@ import "react-toastify/dist/ReactToastify.css";
 import BackBtn from "../utils/BackBtn";
 import Button from "../utils/Button";
 
-export default function LineToSpaceConvert() {
+function RoboText({ counter }) {
+    return (
+        <div
+            className="inline-block text-2xl lg:text-6xl"
+            style={{
+                fontFamily: "Roboto",
+            }}
+        >
+            {counter}
+        </div>
+    );
+}
+
+export default function WordCharLineCounter() {
     const [isLoading, setIsLoading] = useState(false);
     const [text, setText] = useState("");
+    const [counter, setCounter] = useState({
+        word: 0,
+        char: 0,
+        line: 0,
+    });
 
     const onSubmit = (e) => {
         e.preventDefault();
         setIsLoading(true);
         setTimeout(() => {
-            setText(text.replace(/\n/g, " "));
+            var transformedText = text.replace(/\n/g, " ");
+            var wordCount = transformedText.split(" ").length;
+            var charCountWithSpace = transformedText.length;
+            var charCountWithoutSpace = transformedText.replace(
+                /\s/g,
+                ""
+            ).length;
+            var lineCount = transformedText.split(".").length;
+            setCounter({
+                word: wordCount,
+                char: charCountWithSpace,
+                line: lineCount,
+            });
             setIsLoading(false);
             toast.success("Text Converted", {
                 position: "top-right",
@@ -46,6 +76,7 @@ export default function LineToSpaceConvert() {
     return (
         <>
             <BackBtn />
+
             <form
                 className="flex h-screen flex-col items-center justify-center"
                 onSubmit={onSubmit}
@@ -54,10 +85,14 @@ export default function LineToSpaceConvert() {
                     <div
                         className="flex-1 text-left text-2xl lg:text-6xl"
                         style={{
-                            fontFamily: "Arthemis",
+                            // fontFamily: "Arthemis",
+                            // Arthemis is not available in google fonts
+                            fontFamily: ["Arthemis", "Roboto", "sans-serif"],
                         }}
                     >
-                        Line to Space Converter
+                        Word = <RoboText counter={counter.word} />, Char ={" "}
+                        <RoboText counter={counter.char} />, Line ={" "}
+                        <RoboText counter={counter.line} />
                     </div>
                     <div
                         className="flex-none items-center text-right"
@@ -83,7 +118,7 @@ export default function LineToSpaceConvert() {
                 </div>
                 <textarea
                     className="h-2/3 w-4/5 resize-none rounded-md p-2 text-lg duration-300 focus:caret-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-400 lg:w-3/4"
-                    placeholder="Enter text here to convert"
+                    placeholder="Enter text to count words, characters and lines"
                     value={text}
                     required
                     // autoFocus
@@ -93,7 +128,7 @@ export default function LineToSpaceConvert() {
                     type="Submit"
                     extraClassName="mt-3 w-2/3 lg:w-2/5"
                     isLoading={isLoading}
-                    text="Convert"
+                    text="Count"
                 />
                 <ToastContainer
                     hideProgressBar={false}
