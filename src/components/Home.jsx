@@ -7,18 +7,21 @@ export default function Home() {
         {
             name: "Line To Space Converter",
             path: "/LineToSpaceConverter",
-            hover: "hover:ring-green-400 hover:text-green-400",
+            color: "text-green-400",
+            hover: "hover:ring-green-400",
         },
         {
             name: "Word, Character, Line Counter",
             path: "/WordCharLineCounter",
-            hover: "hover:ring-red-400 hover:text-red-400",
+            color: "text-red-400",
+            hover: "hover:ring-red-400",
         },
-        // {
-        //     name: "Line To Space Converter",
-        //     path: "/LineToSpaceConverter",
-        //     hover: "hover:ring-pink-400 hover:text-pink-400",
-        // },
+        {
+            name: "Age Calculator",
+            path: "/AgeCalculator",
+            color: "text-pink-400",
+            hover: "hover:ring-pink-400",
+        },
         // {
         //     name: "Line To Space Converter",
         //     path: "/LineToSpaceConverter",
@@ -26,13 +29,9 @@ export default function Home() {
         // },
     ];
     return (
-        <div
-            style={{
-                fontFamily: "Arthemis",
-            }}
-        >
+        <div>
             <div class="inner-header lg:h-50 flex h-96">
-                <div className="flex-1 text-6xl text-orange-400 lg:text-8xl">
+                <div className="flex-1 text-6xl font-semibold text-orange-400 lg:text-[120px]">
                     Online PowerToys
                 </div>
             </div>
@@ -41,7 +40,7 @@ export default function Home() {
                 {link.map((item) => (
                     <a
                         href={item.path}
-                        className={`duration-900 translate m-4 translate-x-0 rounded-full p-16 text-center text-2xl font-bold text-white transition ease-in-out hover:ring-4 lg:text-5xl ${item.hover} `}
+                        className={`duration-900 translate m-4 translate-x-0 rounded-full p-16 text-center text-2xl font-bold text-white transition ease-in-out hover:ring-4 lg:text-5xl ${item.hover} hover:text-white ${item.color} `}
                     >
                         {item.name}
                     </a>

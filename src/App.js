@@ -14,9 +14,16 @@ const WordCharLineCounter = lazy(() =>
     import("./components/WordCharLineCounter")
 );
 
+const AgeCalculator = lazy(() => import("./components/AgeCalculator"));
+
 function App() {
     return (
-        <div className="bg-dark -mt-2">
+        <div
+            className="bg-dark -mt-2"
+            style={{
+                fontFamily: "Arthemis",
+            }}
+        >
             <div id="stars" className="-z-50 h-1/2 overflow-hidden"></div>
             <div id="stars2" className="-z-50 h-1/2 overflow-hidden"></div>
             <div id="stars3" className="-z-50 h-1/2 overflow-hidden"></div>
@@ -47,6 +54,15 @@ function App() {
                             </Suspense>
                         }
                     />
+                    <Route
+                        path="/AgeCalculator"
+                        element={
+                            <Suspense fallback={<Loader />}>
+                                <AgeCalculator />
+                            </Suspense>
+                        }
+                    />
+                    // test route
                     <Route
                         path="/test"
                         element={

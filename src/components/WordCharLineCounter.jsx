@@ -6,19 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import BackBtn from "../utils/BackBtn";
 import Button from "../utils/Button";
 
-function RoboText({ counter }) {
-    return (
-        <div
-            className="inline-block text-2xl lg:text-6xl"
-            style={{
-                fontFamily: "Roboto",
-            }}
-        >
-            {counter}
-        </div>
-    );
-}
-
 export default function WordCharLineCounter() {
     const [isLoading, setIsLoading] = useState(false);
     const [text, setText] = useState("");
@@ -90,9 +77,8 @@ export default function WordCharLineCounter() {
                             fontFamily: ["Arthemis", "Roboto", "sans-serif"],
                         }}
                     >
-                        Word = <RoboText counter={counter.word} />, Char ={" "}
-                        <RoboText counter={counter.char} />, Line ={" "}
-                        <RoboText counter={counter.line} />
+                        Word = {counter.word}, Char = {counter.char}, Line ={" "}
+                        {counter.line}
                     </div>
                     <div
                         className="flex-none items-center text-right"
