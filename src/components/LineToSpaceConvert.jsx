@@ -51,12 +51,7 @@ export default function LineToSpaceConvert() {
                 onSubmit={onSubmit}
             >
                 <div className="mb-4 flex w-4/5 flex-row items-center font-bold text-orange-400 lg:w-3/4">
-                    <div
-                        className="flex-1 text-left text-2xl lg:text-6xl"
-                        style={{
-                            fontFamily: "Arthemis",
-                        }}
-                    >
+                    <div className="flex-1 text-left text-2xl lg:text-6xl">
                         Line to Space Converter
                     </div>
                     <div
