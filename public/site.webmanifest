@@ -1,0 +1,20 @@
+{
+  "name": "Online PowerToys",
+  "short_name": "PowerToys",
+  "description": "Fast, private tools for power users that run entirely in your browser.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#f97316",
+  "background_color": "#0f1424",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

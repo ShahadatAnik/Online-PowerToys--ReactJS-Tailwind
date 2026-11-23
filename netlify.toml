@@ -1,0 +1,44 @@
+# Netlify: static, fully prerendered TanStack Start build, built with Bun.
+[build]
+  command = "bun run build"
+  publish = "dist/client"
+
+[build.environment]
+  BUN_VERSION = "1.4.5"
+
+# Old Create React App URLs → new tool routes.
+[[redirects]]
+  from = "/LineToSpaceConverter"
+  to = "/tools/line-to-space"
+  status = 301
+
+[[redirects]]
+  from = "/WordCharLineCounter"
+  to = "/tools/word-counter"
+  status = 301
+
+[[redirects]]
+  from = "/AgeCalculator"
+  to = "/tools/age-calculator"
+  status = 301
+
+# Anything that isn't a prerendered file: serve the SPA shell with a real 404 status.
+# The router then renders the Not Found page (src/routes/$.tsx) on the client.
+[[redirects]]
+  from = "/*"
+  to = "/_shell.html"
+  status = 404
+
+# Hashed build assets never change.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
