@@ -1,5 +1,5 @@
 import { createContext, type ReactNode, use, useEffect, useMemo, useState } from "react"
-import { STORAGE_PREFIX } from "@/lib/site"
+import { STORAGE_PREFIX, site } from "@/lib/site"
 
 export type Theme = "light" | "dark" | "system"
 type ResolvedTheme = Exclude<Theme, "system">
@@ -38,6 +38,10 @@ function applyTheme(resolved: ResolvedTheme) {
   const root = document.documentElement
   root.classList.toggle("dark", resolved === "dark")
   root.style.colorScheme = resolved
+  // Match the browser UI to the chosen theme, even when it differs from the OS preference.
+  for (const meta of document.querySelectorAll<HTMLMetaElement>("meta[name=theme-color]")) {
+    meta.content = site.themeColor[resolved]
+  }
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

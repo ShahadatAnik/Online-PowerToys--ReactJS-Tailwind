@@ -11,6 +11,12 @@ export function getRouter() {
     defaultPreloadStaleTime: 0,
     defaultErrorComponent: DefaultErrorComponent,
     defaultNotFoundComponent: NotFound,
+    // Animate page changes with the View Transitions API (styles in styles.css). Hash links
+    // and search-param updates on the same page swap instantly. Browsers without support,
+    // or users who prefer reduced motion, get an instant swap.
+    defaultViewTransition: {
+      types: ({ pathChanged }) => (pathChanged ? ["page"] : false),
+    },
   })
 }
 

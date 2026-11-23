@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router"
 import { ShieldCheck } from "lucide-react"
+import { LogoMark } from "@/components/logo-mark"
 import { site } from "@/lib/site"
 import { toolCategories, tools } from "@/lib/tools"
 
@@ -8,8 +9,11 @@ export function SiteFooter() {
     <footer className="mt-auto border-t border-border/60 bg-muted/30">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.5fr_repeat(3,1fr)]">
         <div className="space-y-3">
-          <p className="font-display text-2xl leading-none">
-            Online <span className="text-primary">PowerToys</span>
+          <p className="flex items-center gap-3 font-display text-2xl leading-none">
+            <LogoMark className="size-9" />
+            <span>
+              Online <span className="text-primary">PowerToys</span>
+            </span>
           </p>
           <p className="max-w-xs text-sm text-muted-foreground">{site.tagline}.</p>
           <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
