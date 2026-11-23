@@ -45,15 +45,16 @@ bun install
 bun run dev        # http://localhost:3000
 ```
 
-| Script              | What it does                                         |
-| ------------------- | ---------------------------------------------------- |
-| `bun run dev`       | Start the dev server                                 |
-| `bun run build`     | Production build and prerender every page to `dist/` |
-| `bun run preview`   | Serve the production build                           |
-| `bun run test`      | Run unit and component tests                         |
-| `bun run check`     | Lint and check formatting (`check:fix` to apply)     |
-| `bun run typecheck` | Type-check the project                               |
-| `bun run validate`  | All of the above, the same as CI                     |
+| Script                   | What it does                                            |
+| ------------------------ | ------------------------------------------------------- |
+| `bun run dev`            | Start the dev server                                    |
+| `bun run build`          | Generate OG images, then build and prerender to `dist/` |
+| `bun run generate:icons` | Regenerate favicons and app icons from the logo         |
+| `bun run preview`        | Serve the production build                              |
+| `bun run test`           | Run unit and component tests                            |
+| `bun run check`          | Lint and check formatting (`check:fix` to apply)        |
+| `bun run typecheck`      | Type-check the project                                  |
+| `bun run validate`       | All of the above, the same as CI                        |
 
 ## Project layout
 
@@ -64,14 +65,33 @@ src/
   components/ui/     shadcn/ui components (add more with `bunx shadcn@latest add <name>`)
   lib/               Pure, unit-tested logic (text, json, base64, dates, uuid) + tool registry
   hooks/             Reusable hooks (persisted state, clipboard, hotkeys)
-  styles.css         Tailwind + theme tokens (orange brand, light & dark)
+  styles.css         Tailwind + theme tokens, page transitions
+scripts/
+  generate-icons.tsx      Favicon, Apple touch and PWA icons from <LogoMark> (output committed)
+  generate-og-images.tsx  Per-page Open Graph images + llms.txt (runs on every build)
 ```
+
+## SEO
+
+Every page is prerendered HTML with its own:
+
+- title, meta description and canonical URL (no trailing slash, served without redirects)
+- Open Graph and Twitter card tags, with a generated 1200×630 image per page
+- JSON-LD structured data: `WebSite`, author and `ItemList` on the home page;
+  `WebApplication`, `BreadcrumbList` and `FAQPage` on tool pages
+- visible how-to steps, FAQ and related tools, all from the tool registry
+
+The build also emits `sitemap.xml` (with `lastmod` from git and image entries) and `llms.txt`.
+Unknown URLs return 404 with `noindex`.
+
+The logo lives in `src/components/logo-mark.tsx`. After changing it, run `bun run generate:icons`.
 
 ## Adding a tool
 
 1. Put the logic in `src/lib/` as pure functions, with a `*.test.ts` next to it.
-2. Add an entry to the `tools` array in `src/lib/tools.ts` (title, description, category, icon, keywords).
-   The home page, command palette, footer and sitemap pick it up automatically.
+2. Add an entry to the `tools` array in `src/lib/tools.ts`: title, description, category, icon,
+   keywords, plus the SEO fields (`seoTitle`, `metaDescription`, `howTo`, `faqs`). The home page,
+   command palette, footer, sitemap, OG image and `llms.txt` pick it up automatically.
 3. Create `src/routes/tools/<slug>.tsx` using `ToolLayout` and `toolSeo(getTool("/tools/<slug>"))` for `head`.
 
 ## Deployment

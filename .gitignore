@@ -27,3 +27,7 @@ coverage
 
 # logs
 *.log
+
+# generated at build time by scripts/generate-og-images.tsx
+public/og
+public/llms.txt

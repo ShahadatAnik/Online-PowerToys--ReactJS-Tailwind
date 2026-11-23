@@ -10,11 +10,11 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group"
-import { seo } from "@/lib/seo"
+import { homeSeo } from "@/lib/seo"
 import { categoryId, searchTools, toolCategories, tools } from "@/lib/tools"
 
 export const Route = createFileRoute("/")({
-  head: () => seo({ path: "/" }),
+  head: homeSeo,
   component: HomePage,
 })
 

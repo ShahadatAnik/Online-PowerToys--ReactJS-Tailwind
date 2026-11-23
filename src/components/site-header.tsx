@@ -7,7 +7,7 @@ import { site } from "@/lib/site"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/75 backdrop-blur-lg supports-backdrop-filter:bg-background/60">
+    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/75 backdrop-blur-lg [view-transition-name:site-header] supports-backdrop-filter:bg-background/60">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:px-6">
         <Logo />
         <div className="ml-auto flex items-center gap-1.5">

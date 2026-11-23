@@ -22,11 +22,19 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "description", content: site.description },
       { name: "author", content: site.author.name },
-      { name: "theme-color", content: site.themeColor },
       { name: "color-scheme", content: "light dark" },
+      { name: "application-name", content: site.name },
+      { name: "apple-mobile-web-app-title", content: site.shortName },
+      { name: "format-detection", content: "telephone=no" },
       ...(isNotFoundPage(matches)
         ? [{ title: `Page not found | ${site.name}` }, { name: "robots", content: "noindex" }]
-        : []),
+        : [
+            {
+              name: "robots",
+              content:
+                "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+            },
+          ]),
     ],
     links: [
       {
@@ -37,10 +45,10 @@ export const Route = createRootRoute({
         crossOrigin: "anonymous",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
-      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
-      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
-      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+      // Icons are generated from the logo by scripts/generate-icons.tsx.
+      { rel: "icon", href: "/favicon.ico", sizes: "32x32" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "manifest", href: "/site.webmanifest" },
     ],
   }),
@@ -53,6 +61,17 @@ function RootDocument({ children }: { children: ReactNode }) {
       <head>
         <ScriptOnce>{themeScript}</ScriptOnce>
         <HeadContent />
+        {/* Rendered here, not in head(): head() dedupes meta by name, which would drop one. */}
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content={site.themeColor.light}
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content={site.themeColor.dark}
+        />
       </head>
       <body>
         <ThemeProvider>

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router"
 import { ShieldCheck } from "lucide-react"
 import type { ReactNode } from "react"
+import { ToolGuide } from "@/components/tool-guide"
 import { Badge } from "@/components/ui/badge"
 import {
   Breadcrumb,
@@ -73,6 +74,8 @@ export function ToolLayout({ tool, actions, children }: ToolLayoutProps) {
         <ShieldCheck className="size-4 text-primary" aria-hidden="true" />
         Runs entirely in your browser — nothing you enter is uploaded or stored on a server.
       </p>
+
+      <ToolGuide tool={tool} />
     </div>
   )
 }
