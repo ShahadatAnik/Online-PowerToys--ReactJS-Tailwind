@@ -12,7 +12,7 @@ export const site = {
     name: "Shahadat Anik",
     url: "https://shahadatanik.github.io/",
   },
-  repository: "https://github.com/ShahadatAnik/Online-PowerToys--ReactJS-Tailwind",
+  repository: "https://github.com/ShahadatAnik/online-powertoys",
   /** Browser UI colour per theme; matches the page background tokens in styles.css. */
   themeColor: { light: "#fefcfb", dark: "#080c15" },
   /** Brand orange, used where a single colour is needed (web manifest, Safari pinned tab). */
